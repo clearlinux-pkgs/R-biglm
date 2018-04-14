@@ -4,7 +4,7 @@
 #
 Name     : R-biglm
 Version  : 0.9.1
-Release  : 1
+Release  : 2
 URL      : https://cran.r-project.org/src/contrib/biglm_0.9-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/biglm_0.9-1.tar.gz
 Summary  : bounded memory linear and generalized linear models
@@ -39,11 +39,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523742910
+export SOURCE_DATE_EPOCH=1523743203
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523742910
+export SOURCE_DATE_EPOCH=1523743203
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "

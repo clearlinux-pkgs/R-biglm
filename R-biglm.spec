@@ -4,18 +4,18 @@
 #
 Name     : R-biglm
 Version  : 0.9.1
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/biglm_0.9-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/biglm_0.9-1.tar.gz
 Summary  : bounded memory linear and generalized linear models
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: R-biglm-lib
+Requires: R-biglm-lib = %{version}-%{release}
 Requires: R-DBI
 Requires: R-leaps
 BuildRequires : R-DBI
 BuildRequires : R-leaps
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 This is basically Alan Miller's modification (AS274) of the other
@@ -39,11 +39,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523743203
+export SOURCE_DATE_EPOCH=1552718407
 
 %install
+export SOURCE_DATE_EPOCH=1552718407
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523743203
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -78,8 +78,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library biglm|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  biglm || :
 
 
 %files
@@ -104,7 +103,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/biglm/help/paths.rds
 /usr/lib64/R/library/biglm/html/00Index.html
 /usr/lib64/R/library/biglm/html/R.css
-/usr/lib64/R/library/biglm/libs/symbols.rds
 
 %files lib
 %defattr(-,root,root,-)

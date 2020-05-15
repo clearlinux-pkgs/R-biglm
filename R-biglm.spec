@@ -4,7 +4,7 @@
 #
 Name     : R-biglm
 Version  : 0.9.1
-Release  : 24
+Release  : 25
 URL      : https://cran.r-project.org/src/contrib/biglm_0.9-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/biglm_0.9-1.tar.gz
 Summary  : bounded memory linear and generalized linear models
@@ -12,10 +12,10 @@ Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-biglm-lib = %{version}-%{release}
 Requires: R-DBI
+Requires: R-leaps
 BuildRequires : R-DBI
 BuildRequires : R-leaps
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 This is basically Alan Miller's modification (AS274) of the other
@@ -33,21 +33,22 @@ lib components for the R-biglm package.
 
 %prep
 %setup -q -c -n biglm
+cd %{_builddir}/biglm
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571802088
+export SOURCE_DATE_EPOCH=1589527401
 
 %install
-export SOURCE_DATE_EPOCH=1571802088
+export SOURCE_DATE_EPOCH=1589527401
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

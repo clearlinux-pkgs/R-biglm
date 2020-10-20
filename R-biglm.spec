@@ -4,7 +4,7 @@
 #
 Name     : R-biglm
 Version  : 0.9.2
-Release  : 27
+Release  : 28
 URL      : https://cran.r-project.org/src/contrib/biglm_0.9-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/biglm_0.9-2.tar.gz
 Summary  : bounded memory linear and generalized linear models

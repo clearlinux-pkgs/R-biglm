@@ -4,7 +4,7 @@
 #
 Name     : R-biglm
 Version  : 0.9.2.1
-Release  : 32
+Release  : 33
 URL      : https://cran.r-project.org/src/contrib/biglm_0.9-2.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/biglm_0.9-2.1.tar.gz
 Summary  : Bounded Memory Linear and Generalized Linear Models
@@ -12,7 +12,6 @@ Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-biglm-lib = %{version}-%{release}
 Requires: R-DBI
-Requires: R-leaps
 BuildRequires : R-DBI
 BuildRequires : R-leaps
 BuildRequires : buildreq-R
@@ -40,10 +39,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1606588973
+export SOURCE_DATE_EPOCH=1619368886
 
 %install
-export SOURCE_DATE_EPOCH=1606588973
+export SOURCE_DATE_EPOCH=1619368886
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -109,4 +108,3 @@ R CMD check --no-manual --no-examples --no-codoc biglm || :
 %defattr(-,root,root,-)
 /usr/lib64/R/library/biglm/libs/biglm.so
 /usr/lib64/R/library/biglm/libs/biglm.so.avx2
-/usr/lib64/R/library/biglm/libs/biglm.so.avx512
